@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>BittrexRx</PackageId>
+     <Title>BittrexRxSharp</Title>
+    <Authors>Rojay Simpson</Authors>
+    <Company />
+    <Version>1.0.0</Version>
+    <PackageLicenseUrl>https://github.com/harry-sm/BittrexRxSharp/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/harry-sm/BittrexRxSharp</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/harry-sm/BittrexRxSharp</RepositoryUrl>
+    <PackageTags>C# .net core reactive bittrex cryptocurrency exchange observable client</PackageTags>
+    <Description>BittrexRxSharp is a reactive C# wrapper for the Bittrex Api.</Description>
+    <Copyright>Copyright 2017 (c) Rojay Simpson. All rights reserved.</Copyright>
+    <RepositoryType>Git</RepositoryType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.SignalR.Client" Version="2.2.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="System.Reactive" Version="3.1.1" />
+  </ItemGroup>
+
+</Project>
