@@ -351,11 +351,11 @@ bittrexRx.GetOrderBook("BTC-LTC")
 #### Response
 ```json
 { 
-    buy: [
+    "buy": [
         { "Quantity": 0.1, "Rate": 0.07059785 },
         ... 
     ],
-    sell: [
+    "sell": [
         { "Quantity": 1.9251093, "Rate": 0.07068 },
         ...
     ]
