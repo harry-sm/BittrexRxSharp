@@ -108,13 +108,13 @@ namespace BittrexRxSharp
         {
             return this.privateApiRequest<OrderHistory[]>("/account/getorderhistory");
         }
-        public IObservable<Transaction[]> GetWithdrawalHistory(string currency)
-        {
-            return this.privateApiRequest<Transaction[]>("/account/getwithdrawalhistory", new { currency });
-        }
         public IObservable<Transaction[]> GetDepositHistory(string currency)
         {
             return this.privateApiRequest<Transaction[]>("/account/getdeposithistory", new { currency });
+        }
+        public IObservable<WithdrawalTransaction[]> GetWithdrawalHistory(string currency)
+        {
+            return this.privateApiRequest<WithdrawalTransaction[]>("/account/getwithdrawalhistory", new { currency });
         }
         private IObservable<dynamic> Withdraw(string currency, double quantity, string address, string paymentid = null)
         {
