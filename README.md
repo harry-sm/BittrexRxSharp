@@ -1,7 +1,8 @@
 # BittrexRxSharp
-BittrexRxSharp is an Reactive library that was built with C# for the [Bittrex](https://bittrex.com/) API which runs on the .NET platform and uses [Rx.NET](https://github.com/Reactive-Extensions/Rx.NET). I also built a similar library for nodejs using TypeScript which can be found [here](https://github.com/harry-sm/BittrexRx).
+BittrexRxSharp is an Reactive library that was built with C# for the [Bittrex](https://bittrex.com/) API which runs on the .NET platform and uses [Rx.NET](https://github.com/Reactive-Extensions/Rx.NET). I have also built a similar library for nodejs using TypeScript which can be found [here](https://github.com/harry-sm/BittrexRx).
 
-## Installing
+## Installation
+View on [Nuget](https://www.nuget.org/packages/BittrexRx/)
 
 `PM> Install-Package BittrexRx`
 
@@ -1003,4 +1004,48 @@ bittrexRx.setConditionalSellOrder("BTC-ETH", MarketOrderValue.LIMIT, 0.01162237,
     "Quantity": 0.01574783,
     "Rate": 400
 } 
+```
+
+### CustomRequest<T>(string url, object queryOptions, Boolean useCredentials)
+This method is not dependent on the API version and allows for the sending of custom requests.
+
+#### Parameters
+
+| Parameter      | Type    | Example                                  | Description                              |
+| -------------- | ------- | ---------------------------------------- | ---------------------------------------- |
+| url            | string  | https://bittrex.com/api/v1.1/public/getmarketsummary | API endpoint.                            |
+| queryOptions   | object  | new { market: = "BTC-LTC" }              | Query string parameters.                 |
+| useCredentials | Boolean | false                                    | Specify whether the API credentials should be enabled or not. |
+
+#### Return Type
+`IObservable<T>`
+
+#### Example
+```c#
+bittrexRx.CustomRequest<MarketSummary>("https://bittrex.com/api/v1.1/public/getmarketsummary", new { market = "BTC-LTC" }, false)
+    .Subscribe(
+        data => {
+            Console.WriteLine(data);
+        });
+```
+
+#### Response
+```json
+[ 
+    { 
+        "MarketName": "BTC-LTC",
+        "High": 0.00908,
+        "Low": 0.0076,
+        "Volume": 291758.48361243,
+        "Last": 0.0084773,
+        "BaseVolume": 2464.80235543,
+        "TimeStamp": "2017-11-08T00:32:02.203",
+        "Bid": 0.00846202,
+        "Ask": 0.0084773,
+        "OpenBuyOrders": 2964,
+        "OpenSellOrders": 13074,
+        "PrevDay": 0.00775,
+        "Created": "2014-02-13T00:00:00" 
+    } 
+]
 ```

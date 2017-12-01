@@ -185,6 +185,10 @@ namespace BittrexRxSharp
                 }, 2);
         }
 
+        public IObservable<T> CustomRequest<T>(string url, object queryOptions, Boolean useCredentials) {
+            return this.DispatchRequest<T>(url, queryOptions, useCredentials);
+        }
+
         private async Task<string> AsyncRequest(string url, Boolean useCredentials)
         {
             var request = new HttpRequestMessage(HttpMethod.Get, new Uri(url));
