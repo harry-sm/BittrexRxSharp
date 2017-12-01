@@ -1,11 +1,9 @@
 # BittrexRxSharp
-BittrexRxSharp is an Reactive library that was built with C# for the [Bittrex](https://bittrex.com/) API which runs on the .NET platform and uses [Rx.NET](https://github.com/Reactive-Extensions/Rx.NET). Please check out the [TypeScript](https://github.com/harry-sm/BittrexRx) version of this library.
+BittrexRxSharp is an Reactive library that was built with C# for the [Bittrex](https://bittrex.com/) API which runs on the .NET platform and uses [Rx.NET](https://github.com/Reactive-Extensions/Rx.NET). I also built a similar library for nodejs using TypeScript which can be found [here](https://github.com/harry-sm/BittrexRx).
 
 ## Installing
 
-Install from [NuGet](https://www.nuget.org/packages/BittrexRx/):
-
-`PM> Install-Package BittrexRx -Version 1.0.0`
+`Install-Package BittrexRx -Version 1.0.0`
 
 Include in your project
 ```c#
@@ -49,7 +47,7 @@ using BittrexRxSharp.Models;
 using BittrexRxSharp.ValueTypes;
 using BittrexRxSharp.Helpers.Extensions;
 
-var bittrexRx = new BittrexRxSharp();
+var bittrexRx = new BittrexRxSharpClient();
 
 bittrexRx.ApiCredentials("API_KEY", "API_SECRET");
 
@@ -73,9 +71,9 @@ bittrexRx.GetMarkets()
 #### Response
 ```json
 { 
-    Bid: 0.00000345, 
-    Ask: 0.00000347, 
-    Last: 0.00000349
+    "Bid": 0.00000345, 
+    "Ask": 0.00000347, 
+    "Last": 0.00000349
 }
 ```
 
@@ -202,14 +200,14 @@ bittrexRx.GetCurrencies()
 ```json
 [
     {
-        Currency: "LTC",
-        CurrencyLong: "Litecoin",
-        MinConfirmation: 6,
-        TxFee: 0.01,
-        IsActive: true,
-        CoinType: "BITCOIN",
-        BaseAddress: "LhyLNfBkoKshT7R8Pce6vkB9T2cP2o84hx",
-        Notice: null
+        "Currency": "LTC",
+        "CurrencyLong": "Litecoin",
+        "MinConfirmation": 6,
+        "TxFee": 0.01,
+        "IsActive": true,
+        "CoinType": "BITCOIN",
+        "BaseAddress": "LhyLNfBkoKshT7R8Pce6vkB9T2cP2o84hx",
+        "Notice": null
     },
 ...
 ]
@@ -239,9 +237,9 @@ bittrexRx.GetTicker("BTC-LTC")
 #### Response
 ```json
 { 
-    Bid: 0.00966006, 
-    Ask: 0.00967006, 
-    Last: 0.00966006 
+    "Bid": 0.00966006, 
+    "Ask": 0.00967006, 
+    "Last": 0.00966006 
 }
 ```
 
@@ -271,19 +269,19 @@ bittrexRx.GetMarketSummaries()
 ```json
 [
     {
-        MarketName: "BTC-LTC",
-        High: 0.01023899,
-        Low: 0.00966416,
-        Volume: 79788.80702209,
-        Last: 0.00970283,
-        BaseVolume: 791.93512777,
-        TimeStamp: "2017-10-26T01:52:30.430",
-        Bid: 0.00970283,
-        Ask: 0.00970683,
-        OpenBuyOrders: 2143,
-        OpenSellOrders: 12833,
-        PrevDay: 0.01020636,
-        Created: "2014-02-13T05:00:00.000"
+        "MarketName": "BTC-LTC",
+        "High": 0.01023899,
+        "Low": 0.00966416,
+        "Volume": 79788.80702209,
+        "Last": 0.00970283,
+        "BaseVolume": 791.93512777,
+        "TimeStamp": "2017-10-26T01:52:30.430",
+        "Bid": 0.00970283,
+        "Ask": 0.00970683,
+        "OpenBuyOrders": 2143,
+        "OpenSellOrders": 12833,
+        "PrevDay": 0.01020636,
+        "Created": "2014-02-13T05:00:00.000"
     },
     ...
 ]
@@ -313,19 +311,19 @@ bittrexRx.GetMarketSummary("BTC-LTC")
 #### Response
 ```json
 { 
-    MarketName: "BTC-LTC",
-    High: 0.01023899,
-    Low: 0.00966416,
-    Volume: 79788.80702209,
-    Last: 0.00970283,
-    BaseVolume: 791.93512777,
-    TimeStamp: "2017-10-26T01:52:30.430",
-    Bid: 0.00970283,
-    Ask: 0.00970683,
-    OpenBuyOrders: 2143,
-    OpenSellOrders: 12833,
-    PrevDay: 0.01020636,
-    Created: "2014-02-13T05:00:00.000" 
+    "MarketName": "BTC-LTC",
+    "High": 0.01023899,
+    "Low": 0.00966416,
+    "Volume": 79788.80702209,
+    "Last": 0.00970283,
+    "BaseVolume": 791.93512777,
+    "TimeStamp": "2017-10-26T01:52:30.430",
+    "Bid": 0.00970283,
+    "Ask": 0.00970683,
+    "OpenBuyOrders": 2143,
+    "OpenSellOrders": 12833,
+    "PrevDay": 0.01020636,
+    "Created": "2014-02-13T05:00:00.000" 
 }
 ```
 
@@ -354,11 +352,11 @@ bittrexRx.GetOrderBook("BTC-LTC")
 ```json
 { 
     buy: [
-        { Quantity: 0.1, Rate: 0.07059785 },
+        { "Quantity": 0.1, "Rate": 0.07059785 },
         ... 
     ],
     sell: [
-        { Quantity: 1.9251093, Rate: 0.07068 },
+        { "Quantity": 1.9251093, "Rate": 0.07068 },
         ...
     ]
 }
@@ -389,7 +387,7 @@ bittrexRx.GetOrderBuyBook("BTC-LTC")
 #### Response
 ```json
 [
-    { Quantity: 0.1, Rate: 0.07059785 },
+    { "Quantity": 0.1, "Rate": 0.07059785 },
     ... 
 ]
 ```
@@ -419,7 +417,7 @@ bittrexRx.GetOrderSellBook("BTC-LTC")
 #### Response
 ```json
 [
-    { Quantity: 1.9251093, Rate: 0.07068 },
+    { "Quantity": 1.9251093, "Rate": 0.07068 },
     ... 
 ]
 ```
@@ -450,13 +448,13 @@ bittrexRx.GetMarketHistory("BTC-LTC")
 ```json
 [
     {
-        Id: 85963164,
-        TimeStamp: "2017-10-26T02:00:10.273",
-        Quantity: 3.29091587,
-        Price: 0.00973473,
-        Total: 0.03203617,
-        FillType: "PARTIAL_FILL",
-        OrderType: "BUY" 
+        "Id": 85963164,
+        "TimeStamp": "2017-10-26T02:00:10.273",
+        "Quantity": 3.29091587,
+        "Price": 0.00973473,
+        "Total": 0.03203617,
+        "FillType": "PARTIAL_FILL",
+        "OrderType": "BUY" 
     },
     ...
 ]
@@ -491,13 +489,13 @@ bittrexRx.GetCandle("BTC-LTC", TickIntervalType.oneMin)
 ```json
 [
     { 
-        O: 0.01149845,
-        H: 0.0115379,
-        L: 0.01149845,
-        C: 0.0115379,
-        V: 46.98461375,
-        T: "2017-10-16T03:56:00.000",
-        BV: 0.5419376 
+        "O": 0.01149845,
+        "H": 0.0115379,
+        "L": 0.01149845,
+        "C": 0.0115379,
+        "V": 46.98461375,
+        "T": "2017-10-16T03:56:00.000",
+        "BV": 0.5419376 
     },
     ...
 ]
@@ -531,13 +529,13 @@ bittrexRx.GetBalances()
 ```json
 [
     { 
-        Currency: "LTC",
-        Balance: 0.0,
-        Available: 0.0,
-        Pending: 0.0,
-        CryptoAddress: null,
-        Requested: false,
-        Uuid: null
+        "Currency": "LTC",
+        "Balance": 0.0,
+        "Available": 0.0,
+        "Pending": 0.0,
+        "CryptoAddress": null,
+        "Requested": false,
+        "Uuid": null
     },
     ...
 ]
@@ -568,13 +566,13 @@ bittrexRx.GetBalance("LTC")
 #### Response
 ```json
 { 
-    Currency: "LTC",
-    Balance: 0.0,
-    Available: 0.0,
-    Pending: 0.0,
-    CryptoAddress: null,
-    Requested: false,
-    Uuid: null 
+    "Currency": "LTC",
+    "Balance": 0.0,
+    "Available": 0.0,
+    "Pending": 0.0,
+    "CryptoAddress": null,
+    "Requested": false,
+    "Uuid": null 
 }
 ```
 
@@ -602,8 +600,8 @@ bittrexRx.GetBalance("LTC")
 #### Response
 ```json
 { 
-    Currency: "LTC",
-    Address: ""
+    "Currency": "LTC",
+    "Address": ""
 }
 ```
 
@@ -629,31 +627,31 @@ bittrexRx.GetOrder("dc1a6628-7e12-4817-aa16-b5e9860d116c")
 ```
 
 #### Response
-```js
+```json
 { 
-    AccountId: null,
-    OrderUuid: "dc1a6628-7e12-4817-aa16-b5e9860d116c",
-    Exchange: "BTC-XVG",
-    Type: "LIMIT_BUY",
-    Quantity: 326.22641509,
-    QuantityRemaining: 0.0,
-    Limit: 0.00000159,
-    Reserved: 0.00051869,
-    ReserveRemaining: 0.00051869,
-    CommissionReserved: 0.00000129,
-    CommissionReserveRemaining: 0.0,
-    CommissionPaid: 0.00000129,
-    Price: 0.00051869,
-    PricePerUnit: 0.00000158,
-    Opened: "2017-09-27T02:47:50.740",
-    Closed: "2017-09-27T03:39:30.280",
-    IsOpen: false,
-    Sentinel: "Invalid Date",
-    CancelInitiated: false,
-    ImmediateOrCancel: false,
-    IsConditional: false,
-    Condition: "NONE",
-    ConditionTarget: null
+    "AccountId": null,
+    "OrderUuid": "dc1a6628-7e12-4817-aa16-b5e9860d116c",
+    "Exchange": "BTC-XVG",
+    "Type": "LIMIT_BUY",
+    "Quantity": 326.22641509,
+    "QuantityRemaining": 0.0,
+    "Limit": 0.00000159,
+    "Reserved": 0.00051869,
+    "ReserveRemaining": 0.00051869,
+    "CommissionReserved": 0.00000129,
+    "CommissionReserveRemaining": 0.0,
+    "CommissionPaid": 0.00000129,
+    "Price": 0.00051869,
+    "PricePerUnit": 0.00000158,
+    "Opened": "2017-09-27T02:47:50.740",
+    "Closed": "2017-09-27T03:39:30.280",
+    "IsOpen": false,
+    "Sentinel": "Invalid Date",
+    "CancelInitiated": false,
+    "ImmediateOrCancel": false,
+    "IsConditional": false,
+    "Condition": "NONE",
+    "ConditionTarget": null
 }
 ```
 
@@ -683,21 +681,21 @@ bittrexRx.GetOrderHistory()
 ```json
 [
     { 
-        OrderUuid: "dc1a6628-7e12-4817-aa16-b5e9860d116c",
-        Exchange: "BTC-XVG",
-        TimeStamp: "2017-09-27T02:47:50.740",
-        OrderType: "LIMIT_BUY",
-        Limit: 0.00000159,
-        Quantity: 326.22641509,
-        QuantityRemaining: 0.0,
-        Commission: 0.00000129,
-        Price: 0.00051869,
-        PricePerUnit: 0.00000158,
-        IsConditional: false,
-        Condition: "NONE",
-        ConditionTarget: null,
-        ImmediateOrCancel: false,
-        Closed: "2017-09-27T03:39:30.280" 
+        "OrderUuid": "dc1a6628-7e12-4817-aa16-b5e9860d116c",
+        "Exchange": "BTC-XVG",
+        "TimeStamp": "2017-09-27T02:47:50.740",
+        "OrderType": "LIMIT_BUY",
+        "Limit": 0.00000159,
+        "Quantity": 326.22641509,
+        "QuantityRemaining": 0.0,
+        "Commission": 0.00000129,
+        "Price": 0.00051869,
+        "PricePerUnit": 0.00000158,
+        "IsConditional": false,
+        "Condition": "NONE",
+        "ConditionTarget": null,
+        "ImmediateOrCancel": false,
+        "Closed": "2017-09-27T03:39:30.280" 
     },
     ...
 ]
@@ -730,13 +728,13 @@ bittrexRx.GetDepositHistory("LTC")
 ```json
 [
     { 
-        Id: 26972433,
-        Amount: 0.02455098,
-        Currency: "BTC",
-        Confirmations: 4,
-        LastUpdated: "2017-08-16T22:13:47.783",
-        TxId: "8aa448a50b06c0e1436e6e000132d721761e54cac365769ec1136a391df44bfc",
-        CryptoAddress: "138TtdZkyMU8GMY8tzpZuc7xsqrb4CwrGE"
+        "Id": 26972433,
+        "Amount": 0.02455098,
+        "Currency": "BTC",
+        "Confirmations": 4,
+        "LastUpdated": "2017-08-16T22:13:47.783",
+        "TxId": "8aa448a50b06c0e1436e6e000132d721761e54cac365769ec1136a391df44bfc",
+        "CryptoAddress": "138TtdZkyMU8GMY8tzpZuc7xsqrb4CwrGE"
     },
     ...
 ]
@@ -749,10 +747,10 @@ Fetches the withdrawal records of the currency specified.
 
 | Parameter | Type   | Example |
 | --------- | ------ | ------- |
-| currency  | string | "LTC"   |
+| currency  | string | "BTC"   |
 
 #### Return Type
-`IObservable<Transaction[]>`
+`IObservable<WithdrawalTransaction[]>`
 
 #### Example
 ```c#
@@ -768,17 +766,17 @@ bittrexRx.GetWithdrawalHistory("LTC")
 ```json
 [
     {
-        PaymentUuid: "b14f86bb-b15b-4177-9779-5466eb3a0fbc",
-        Currency: "BTC",
-        Amount: 0.02039674,
-        Address: Invalid Date,
-        Opened: "2017-08-18T08:40:44.737",
-        Authorized: true,
-        PendingPayment: false,
-        TxCost: 0.001,
-        TxId: "38a3147f51b8c4798d1a5b3e2712bd7b7177fa99d6457af45a84e56664b6bbc6",
-        Canceled: false,
-        InvalidAddress: false 
+        "PaymentUuid": "b14f86bb-b15b-4177-9779-5466eb3a0fbc",
+        "Currency": "BTC",
+        "Amount": 0.02039674,
+        "Address": "1Fo8nz1m4fBb7iDKWDghiA6YSEsg4HZJxD",
+        "Opened": "2017-08-18T04:40:44.737",
+        "Authorized": true,
+        "PendingPayment": false,
+        "TxCost": 0.001,
+        "TxId": "38a3147f51b8c4798d1a5b3e2712bd7b7177fa99d6457af45a84e56664b6bbc6",
+        "Canceled": false,
+        "InvalidAddress": false 
     },
     ...
 ]
@@ -813,7 +811,7 @@ bittrexRx.SetBuyOrder("BTC-LTC", 0.05849296, 0.00869720)
 #### Response
 ```json
 {    
-    uuid: "54a1cc8f-10dc-49de-bb52-f5d70b1c84ec"
+    "uuid": "54a1cc8f-10dc-49de-bb52-f5d70b1c84ec"
 }
 ```
 
@@ -843,7 +841,7 @@ bittrexRx.SetSellOrder("USDT-BTC", 0.0051, 7000)
 #### Response
 ```json
 {
-    uuid: "2968d0f9-2854-48e5-bbbf-18a2b7451140"
+    "uuid": "2968d0f9-2854-48e5-bbbf-18a2b7451140"
 }
 ```
 
@@ -865,7 +863,7 @@ bittrexRx.GetOpenOrders("BTC-GNT")
     .Subscribe(
         data => {
           foreach(var openOrder in data)
-             Console.WriteLine(openOrder);
+                Console.WriteLine(openOrder);
         });
 ```
 
@@ -873,23 +871,23 @@ bittrexRx.GetOpenOrders("BTC-GNT")
 ```json
 [
     { 
-        Uuid: null,
-        OrderUuid: "9a6e6f63-de19-475a-ad81-c85129681253",
-        Exchange: "BTC-GNT",
-        OrderType: "LIMIT_BUY",
-        Quantity: 16.14487464,
-        QuantityRemaining: 16.14487464,
-        Limit: 0.00003151,
-        CommissionPaid: 0,
-        Price: 0,
-        PricePerUnit: null,
-        Opened: "2017-10-24T03:50:26.250Z",
-        Closed: null,
-        CancelInitiated: false,
-        ImmediateOrCancel: false,
-        IsConditional: false,
-        Condition: "NONE",
-        ConditionTarget: null 
+        "Uuid": null,
+        "OrderUuid": "9a6e6f63-de19-475a-ad81-c85129681253",
+        "Exchange": "BTC-GNT",
+        "OrderType": "LIMIT_BUY",
+        "Quantity": 16.14487464,
+        "QuantityRemaining": 16.14487464,
+        "Limit": 0.00003151,
+        "CommissionPaid": 0,
+        "Price": 0,
+        "PricePerUnit": null,
+        "Opened": "2017-10-24T03:50:26.250Z",
+        "Closed": null,
+        "CancelInitiated": false,
+        "ImmediateOrCancel": false,
+        "IsConditional": false,
+        "Condition": "NONE",
+        "ConditionTarget": null 
     },
   ...
 ]
@@ -954,13 +952,13 @@ bittrexRx.SetConditionalBuyOrder("BTC-ETH", MarketOrderValue.LIMIT, 0.01162237, 
 #### Response
 ```json
 {   
-    OrderId: "ac983afd-6852-478e-8415-d6e30615ea9c",
-    MarketName: "BTC-ETH",
-    MarketCurrency: "ETH",
-    BuyOrSell: "Buy",
-    OrderType: "LIMIT",
-    Quantity: 0.01162237,
-    Rate: 0.0437712
+    "OrderId": "ac983afd-6852-478e-8415-d6e30615ea9c",
+    "MarketName": "BTC-ETH",
+    "MarketCurrency": "ETH",
+    "BuyOrSell": "Buy",
+    "OrderType": "LIMIT",
+    "Quantity": 0.01162237,
+    "Rate": 0.0437712
 }
 ```
 
@@ -997,57 +995,12 @@ bittrexRx.setConditionalSellOrder("BTC-ETH", MarketOrderValue.LIMIT, 0.01162237,
 #### Response
 ```json
 {    
-    OrderId: "b27a6b86-bae6-4b04-be2d-6726e717e53e",
-    MarketName: "USDT-ETH",
-    MarketCurrency: "ETH",
-    BuyOrSell: "Sell",
-    OrderType: "LIMIT",
-    Quantity: 0.01574783,
-    Rate: 400
+    "OrderId": "b27a6b86-bae6-4b04-be2d-6726e717e53e",
+    "MarketName": "USDT-ETH",
+    "MarketCurrency": "ETH",
+    "BuyOrSell": "Sell",
+    "OrderType": "LIMIT",
+    "Quantity": 0.01574783,
+    "Rate": 400
 } 
-```
-
-
-### customRequest(url: string, queryOptions: Object, useCredentials: Boolean)
-This method is not dependent on the API version and allows for the sending of custom requests.
-
-#### Parameters
-
-| Parameter      | Type    | Example                                  | Description                              |
-| -------------- | ------- | ---------------------------------------- | ---------------------------------------- |
-| url            | string  | https://bittrex.com/api/v1.1/public/getmarketsummary | API endpoint.                            |
-| queryOptions   | Object  | { market: "BTC-LTC" }                    | Query string parameters.                 |
-| useCredentials | Boolean | false                                    | Specify whether the API credentials should be enabled or not. |
-
-#### Return Type
-`IObservable<dynamic>`
-
-#### Example
-```c#
-bittrexRx.customRequest("https://bittrex.com/api/v1.1/public/getmarketsummary", { market: "BTC-LTC" }, false)
-    .Subscribe(
-        data => {
-            Console.WriteLine(data);
-        });
-```
-
-#### Response
-```json
-[ 
-    { 
-        MarketName: "BTC-LTC",
-        High: 0.00908,
-        Low: 0.0076,
-        Volume: 291758.48361243,
-        Last: 0.0084773,
-        BaseVolume: 2464.80235543,
-        TimeStamp: "2017-11-08T00:32:02.203",
-        Bid: 0.00846202,
-        Ask: 0.0084773,
-        OpenBuyOrders: 2964,
-        OpenSellOrders: 13074,
-        PrevDay: 0.00775,
-        Created: "2014-02-13T00:00:00" 
-    } 
-]
 ```
