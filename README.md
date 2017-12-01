@@ -3,7 +3,7 @@ BittrexRxSharp is an Reactive library that was built with C# for the [Bittrex](h
 
 ## Installing
 
-`Install-Package BittrexRx -Version 1.0.0`
+`PM> Install-Package BittrexRx`
 
 Include in your project
 ```c#
