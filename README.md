@@ -1,6 +1,14 @@
 # BittrexRxSharp
 BittrexRxSharp is an Reactive library that was built with C# for the [Bittrex](https://bittrex.com/) API which runs on the .NET platform and uses [Rx.NET](https://github.com/Reactive-Extensions/Rx.NET). I have also built a similar library for nodejs using TypeScript which can be found [here](https://github.com/harry-sm/BittrexRx).
 
+---
+
+[![NuGet version](https://badge.fury.io/nu/bittrexrx.svg)](https://badge.fury.io/nu/bittrexrx)
+
+---
+
+
+
 ## Installation
 View on [Nuget](https://www.nuget.org/packages/BittrexRx/)
 
@@ -931,11 +939,11 @@ Executes buy orders under the conditions specified.
 | --------------- | ------------------------- | ---------------------------------------- | ---------------------------------------- |
 | market          | string                    | "BTC-ETH"                                |                                          |
 | marketOrderType | MarketOrderValue          | MarketOrderValue.LIMIT                   | LIMIT: The order will be executed at a specific price. |
-| quantity        | number                    | 0.01162237                               | -                                        |
-| rate            | number                    | 0.04377120                               | -                                        |
+| quantity        | double                    | 0.01162237                               | -                                        |
+| rate            | double                    | 0.04377120                               | -                                        |
 | timeInEffect    | TimeInEffectValue         | TimeInEffectValue.IMMEDIATE_OR_CANCEL,<br> TimeInEffectValue.GOOD_TIL_CANCELLED, <br>TimeInEffectValue.FILL_OR_KILL | IMMEDIATE_OR_CANCEL: The order must be executed immediately or else it is canceled. Partial fills are accepted .<br> GOOD_TIL_CANCELLED:,The order is placed until the user cancels it. <br>FILL_OR_KILL: The order must be completed in its entirety. The full quantity of the order at a fixed prices must be executed or canceled. |
 | conditionType   | OrderConditionalTypeValue | OrderConditionalTypeValue.NONE, <br>OrderConditionalTypeValue.GREATER_THAN,<br> OrderConditionalTypeValue.LESS_THAN | GREATER_THAN: The order will be executed if the price of the security is greater than the price specified in the target parameter. <br>LESS_THAN: The order will be executed if the price of the security is less than the price specified in the target parameter. |
-| target          | number                    | 0.0                                      | -                                        |
+| target          | double                    | 0.0                                      | -                                        |
 
 
 #### Return Type
@@ -974,11 +982,11 @@ Executes sell orders under the conditions specified.
 | --------------- | ------------------------- | ---------------------------------------- | ---------------------------------------- |
 | market          | string                    | "USDT-ETH"                               |                                          |
 | marketOrderType | MarketOrderValue          | MarketOrderValue.LIMIT                   | LIMIT: The order will be executed at a specific price. |
-| quantity        | number                    | 0.01574783                               | -                                        |
-| rate            | number                    | 400                                      | -                                        |
+| quantity        | double                    | 0.01574783                               | -                                        |
+| rate            | double                    | 400                                      | -                                        |
 | timeInEffect    | TimeInEffectValue         | TimeInEffectValue.IMMEDIATE_OR_CANCEL,<br> TimeInEffectValue.GOOD_TIL_CANCELLED, <br>TimeInEffectValue.FILL_OR_KILL | IMMEDIATE_OR_CANCEL: The order must be executed immediately or else it is canceled. Partial fills are accepted .<br> GOOD_TIL_CANCELLED:,The order is placed until the user cancels it. <br>FILL_OR_KILL: The order must be completed in its entirety. The full quantity of the order at a fixed prices must be executed or canceled. |
 | conditionType   | OrderConditionalTypeValue | OrderConditionalTypeValue.NONE, <br>OrderConditionalTypeValue.GREATER_THAN,<br> OrderConditionalTypeValue.LESS_THAN | GREATER_THAN: The order will be executed if the price of the security is greater than the price specified in the target parameter. <br>LESS_THAN: The order will be executed if the price of the security is less than the price specified in the target parameter. |
-| target          | number                    | 0.0                                      | -                                        |
+| target          | double                    | 0.0                                      | -                                        |
 
 
 #### Return Type
