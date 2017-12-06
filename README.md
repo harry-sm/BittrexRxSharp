@@ -7,8 +7,6 @@ BittrexRxSharp is an Reactive library that was built with C# for the [Bittrex](h
 
 ---
 
-
-
 ## Installation
 View on [Nuget](https://www.nuget.org/packages/BittrexRx/)
 
@@ -68,7 +66,7 @@ bittrexRx.GetMarkets()
                 bittrexRx.GetTicker(market.MarketName).Subscribe(tickData => {
                     Console.WriteLine(tickData);
                 });
-             }
+            }
         },
         err => {
             Console.WriteLine("Error: {0}", err);
@@ -96,7 +94,7 @@ The IntervalTime operator returns an observable that emits some sequence of data
 using BittrexRxSharp.Helpers.Extensions;
 
 bittrexRx.GetMarkets()
-    IntervalTime(5)
+    .IntervalTime(5)
     .Subscribe(
         data => {
             foreach (var market in data)
@@ -158,7 +156,7 @@ Fetches a snapshot of all markets.
 bittrexRx.GetMarkets()
     .Subscribe(
         data => {
-            for (var market of data)
+            foreach (var market in data)
                 Console.WriteLine(market);
         });
 ```
@@ -178,8 +176,7 @@ bittrexRx.GetMarkets()
       "Notice": null,
       "IsSponsored": null,
       "LogoUrl": "https://bittrexblobstorage.blob.core.windows.net/public/6defbc41-582d-47a6-bb2e-d0fa88663524.png" 
-    },
-    ...
+    }
 ]
 ```
 
@@ -200,8 +197,8 @@ Fetches all the market currencies.
 bittrexRx.GetCurrencies()
     .Subscribe(
         data => {
-          foreach (var market in data)
-          	 Console.WriteLine(market);
+            foreach (var market in data)
+          	    Console.WriteLine(market);
         });
 ```
 
@@ -217,8 +214,7 @@ bittrexRx.GetCurrencies()
         "CoinType": "BITCOIN",
         "BaseAddress": "LhyLNfBkoKshT7R8Pce6vkB9T2cP2o84hx",
         "Notice": null
-    },
-...
+    }
 ]
 ```
 
@@ -291,8 +287,7 @@ bittrexRx.GetMarketSummaries()
         "OpenSellOrders": 12833,
         "PrevDay": 0.01020636,
         "Created": "2014-02-13T05:00:00.000"
-    },
-    ...
+    }
 ]
 ```
 
@@ -361,12 +356,10 @@ bittrexRx.GetOrderBook("BTC-LTC")
 ```json
 { 
     "buy": [
-        { "Quantity": 0.1, "Rate": 0.07059785 },
-        ... 
+        { "Quantity": 0.1, "Rate": 0.07059785 }
     ],
     "sell": [
-        { "Quantity": 1.9251093, "Rate": 0.07068 },
-        ...
+        { "Quantity": 1.9251093, "Rate": 0.07068 }
     ]
 }
 ```
@@ -388,7 +381,7 @@ Fetches buy orders from the order book for a specific market.
 bittrexRx.GetOrderBuyBook("BTC-LTC")
     .Subscribe(
         data => {
-           foreach (var orderItem in data)
+            foreach (var orderItem in data)
                 Console.WriteLine(orderItem);
         });
 ```
@@ -396,8 +389,7 @@ bittrexRx.GetOrderBuyBook("BTC-LTC")
 #### Response
 ```json
 [
-    { "Quantity": 0.1, "Rate": 0.07059785 },
-    ... 
+    { "Quantity": 0.1, "Rate": 0.07059785 }
 ]
 ```
 
@@ -426,8 +418,7 @@ bittrexRx.GetOrderSellBook("BTC-LTC")
 #### Response
 ```json
 [
-    { "Quantity": 1.9251093, "Rate": 0.07068 },
-    ... 
+    { "Quantity": 1.9251093, "Rate": 0.07068 }
 ]
 ```
 
@@ -464,8 +455,7 @@ bittrexRx.GetMarketHistory("BTC-LTC")
         "Total": 0.03203617,
         "FillType": "PARTIAL_FILL",
         "OrderType": "BUY" 
-    },
-    ...
+    }
 ]
 ```
 
@@ -505,8 +495,7 @@ bittrexRx.GetCandle("BTC-LTC", TickIntervalType.oneMin)
         "V": 46.98461375,
         "T": "2017-10-16T03:56:00.000",
         "BV": 0.5419376 
-    },
-    ...
+    }
 ]
 ```
 
@@ -545,8 +534,7 @@ bittrexRx.GetBalances()
         "CryptoAddress": null,
         "Requested": false,
         "Uuid": null
-    },
-    ...
+    }
 ]
 ```
 
@@ -681,8 +669,8 @@ Fetches the total transaction history.
 bittrexRx.GetOrderHistory()
     .Subscribe(
         data => {
-        forech(var orderHistoryItem in data)
-            Console.WriteLine(orderHistoryItem);
+            foreach (var orderHistoryItem in data)
+                Console.WriteLine(orderHistoryItem);
         });
 ```
 
@@ -705,8 +693,7 @@ bittrexRx.GetOrderHistory()
         "ConditionTarget": null,
         "ImmediateOrCancel": false,
         "Closed": "2017-09-27T03:39:30.280" 
-    },
-    ...
+    }
 ]
 ```
 
@@ -728,7 +715,7 @@ Fetches the deposit records of the currency specified.
 bittrexRx.GetDepositHistory("LTC")
     .Subscribe(
         data => {
-        	forech(var transactionHistory in data)
+        	foreach (var transactionHistory in data)
                 Console.WriteLine(transactionHistory);
         });
 ```
@@ -744,8 +731,7 @@ bittrexRx.GetDepositHistory("LTC")
         "LastUpdated": "2017-08-16T22:13:47.783",
         "TxId": "8aa448a50b06c0e1436e6e000132d721761e54cac365769ec1136a391df44bfc",
         "CryptoAddress": "138TtdZkyMU8GMY8tzpZuc7xsqrb4CwrGE"
-    },
-    ...
+    }
 ]
 ```
 
@@ -766,7 +752,7 @@ Fetches the withdrawal records of the currency specified.
 bittrexRx.GetWithdrawalHistory("LTC")
     .Subscribe(
         data => {
-            forech(var transactionHistory in data)
+            foreach (var transactionHistory in data)
                 Console.WriteLine(transactionHistory);
         });
 ```
@@ -786,8 +772,7 @@ bittrexRx.GetWithdrawalHistory("LTC")
         "TxId": "38a3147f51b8c4798d1a5b3e2712bd7b7177fa99d6457af45a84e56664b6bbc6",
         "Canceled": false,
         "InvalidAddress": false 
-    },
-    ...
+    }
 ]
 ```
 
@@ -871,7 +856,7 @@ Fetch orders that has not been executed for specific market.
 bittrexRx.GetOpenOrders("BTC-GNT")
     .Subscribe(
         data => {
-          foreach(var openOrder in data)
+            foreach (var openOrder in data)
                 Console.WriteLine(openOrder);
         });
 ```
@@ -897,8 +882,7 @@ bittrexRx.GetOpenOrders("BTC-GNT")
         "IsConditional": false,
         "Condition": "NONE",
         "ConditionTarget": null 
-    },
-  ...
+    }
 ]
 ```
 
